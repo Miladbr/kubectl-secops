@@ -1,0 +1,48 @@
+#!/bin/bash
+
+SWITCH_NAMES=()
+SWITCH_FUNCTIONS=()
+SWITCH_DESCRIPTIONS=()
+SWITCH_HELP_FUNCTIONS=()
+
+register_switch() {
+  SWITCH_NAMES+=("$1")
+  SWITCH_FUNCTIONS+=("$2")
+  SWITCH_DESCRIPTIONS+=("$3")
+  SWITCH_HELP_FUNCTIONS+=("${4:-display_usage}") 
+}
+
+register_switch "--help" "display_usage" "Display this help message" "display_usage"
+
+for script in "$(dirname "$0")"/scripts/*/*.sh; do
+  if [[ -r "$script" ]]; then
+    source "$script"
+  else
+    echo "Warning: Cannot read $script"
+  fi
+done
+
+
+
+main() {
+  local found=false
+  for i in "${!SWITCH_NAMES[@]}"; do
+    if [ "${SWITCH_NAMES[$i]}" == "$1" ]; then
+      found=true
+      shift
+      if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
+        ${SWITCH_HELP_FUNCTIONS[$i]}
+      else
+        ${SWITCH_FUNCTIONS[$i]} "$@"
+      fi
+      break
+    fi
+  done
+
+  if [ "$found" = false ]; then
+    echo -e "${RED}Error: Invalid option.${NC}"
+    display_usage
+  fi
+}
+
+main "$@"
