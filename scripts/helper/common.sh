@@ -6,7 +6,7 @@ display_usage() {
   local DESCRIPTION="A Kubernetes security and operations utility tool."
   echo -e "${GREEN}SecOps: ${DESCRIPTION}"
   echo ""
-  echo -e "Usage: kubectl sec [command]"
+  echo -e "Usage: kubectl secops [command]"
   echo ""
   echo "Available Commands:"
   for i in "${!SWITCH_NAMES[@]}"; do
