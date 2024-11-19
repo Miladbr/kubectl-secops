@@ -74,6 +74,7 @@ $ kubectl secops [command]
   --tara          Approve tara
   --bad-cap       List all pods with bad capabilities
   --dec-sect      Decode and display Kubernetes secrets
+  --find-access   Find RoleBindings and ClusterRoleBindings referencing a user or group using regex matching
   --host-net      List all pods using host network
   --host-path     List all pods using hostPath volumes
   --host-pid      List all pods using host PID namespace
@@ -128,4 +129,8 @@ $ kubectl secops --get-ing security-system
 - Create a kubeconfig for service account k8s-access in the platform namespace
 ```
 $ kubectl secops --create-config security-system manage-k8s-access
+```
+- Find RoleBindings or ClusterRoleBindings referencing users or groups matching regex '^dev-.*' across all namespaces"
+```
+$ kubectl secops --find-access "^dev-.*"
 ```
