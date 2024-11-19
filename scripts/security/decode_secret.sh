@@ -1,6 +1,5 @@
 #!/bin/bash
-source "$(dirname "$0")/scripts/helper/common.sh"
-source "$(dirname "$0")/scripts/helper/colors.sh"
+source "$(dirname "$0")/scripts/helper/load_helpers.sh"
 
 # Function to decode and display the content of secrets
 decode_secret() {

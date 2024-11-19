@@ -1,6 +1,5 @@
 #!/bin/bash
-source "$(dirname "$0")/scripts/helper/common.sh"
-source "$(dirname "$0")/scripts/helper/colors.sh"
+source "$(dirname "$0")/scripts/helper/load_helpers.sh"
 
 # Function to list nodes that are in the Ready state
 list_ready_nodes() {

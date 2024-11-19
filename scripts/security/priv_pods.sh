@@ -1,7 +1,5 @@
 #!/bin/bash
-source "$(dirname "$0")/scripts/helper/ns_helper.sh"
-source "$(dirname "$0")/scripts/helper/colors.sh"
-
+source "$(dirname "$0")/scripts/helper/load_helpers.sh"
 
 # Function to list all privileged pods
 list_privileged_pods() {

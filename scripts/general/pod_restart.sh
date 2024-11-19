@@ -1,6 +1,5 @@
 #!/bin/bash
-source "$(dirname "$0")/scripts/helper/ns_helper.sh"
-source "$(dirname "$0")/scripts/helper/colors.sh"
+source "$(dirname "$0")/scripts/helper/load_helpers.sh"
 
 # Function to list pods with restartCount greater than a specified value in a column-based view
 list_pods_with_restarts() {

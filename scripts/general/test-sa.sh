@@ -1,7 +1,5 @@
 #!/bin/bash
-source "$(dirname "$0")/scripts/helper/common.sh"
-source "$(dirname "$0")/scripts/helper/ns_helper.sh"
-source "$(dirname "$0")/scripts/helper/colors.sh"
+source "$(dirname "$0")/scripts/helper/load_helpers.sh"
 
 # Function to perform a curl request to the Kubernetes API using a service account
 # Source: https://gist.github.com/stewartshea/07ad335637e5f71c5fdf37d88c0ae92d
