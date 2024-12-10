@@ -9,7 +9,7 @@ get_ingress_resources() {
 
   namespace_option=$(get_namespace_option "$1")
 
-  kubectl get ing $namespace_option -o='custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,HOSTS:.spec.rules[*].host,PATHS:.spec.rules[*].http.paths[*].path' | column -t -s $'\t'
+  kubectl get ingress $namespace_option -o='custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,HOSTS:.spec.rules[*].host,PATHS:.spec.rules[*].http.paths[*].path' | column -t -s $'\t'
 }
 
 get_ing_help() {
